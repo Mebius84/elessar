@@ -5,7 +5,7 @@ using System.Text;
 
 namespace elessar
 {
-    public class Class1
+    public class OAuthConnection
     {
     }
 }
