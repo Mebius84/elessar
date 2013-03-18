@@ -7,37 +7,24 @@ namespace elessar
         public string AppID { get; set; }
         public string OAuthUrl { get; set;  }
         public string RedirectUri { get; set; }
-
+        public string ApiUrl { get; set; }
         public Scope Scopes { get; set; }
 
-        private bool _saveAuthData;
-
-        public bool SaveAuthData
-        {
-            get { return _saveAuthData; }
-            set
-            {
-                _saveAuthData = value;
-                if (value.Equals(true))
-                    Scopes = Scopes | Scope.offline;
-                else
-                    Scopes = Scopes ^ Scope.offline;
-            }
-        }
+        public bool SaveAuthData;
 
         public OAuthConnection(string appID, params Scope[] scopes)
         {
             AppID = appID;
             OAuthUrl = "https://oauth.vk.com/authorize?";
             RedirectUri = "https://oauth.vk.com/blank.html";
-            Scopes = Scope.none;
+            ApiUrl = "https://api.vk.com/method/";
+            Scopes = Scope.offline;
             foreach (var scope in scopes)
             {
                 Scopes = Scopes | scope;
             }
             SaveAuthData = false;
         }
-
 
         public void AddScope(Scope scope)
         {

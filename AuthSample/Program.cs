@@ -10,7 +10,7 @@ namespace AuthSample
         [STAThread]
         static void Main(string[] args)
         {
-            OAuthConnection connection = new OAuthConnection("3465377",Scope.messages,Scope.groups,Scope.friends);
+            OAuthConnection connection = new OAuthConnection("3465377",Scope.messages,Scope.groups,Scope.friends, Scope.audio,Scope.status,Scope.stats);
             Client client = new Client();
             client.SetConnection(connection);
             Console.ReadLine();
