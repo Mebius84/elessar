@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Web;
 using System.Windows.Forms;
+using elessar.Http;
 using elessar.JsonClasses.Account;
 
 namespace elessar
@@ -83,7 +84,7 @@ namespace elessar
                 //https://oauth.vk.com/authorize?client_id=APP_ID&scope=SETTINGS&redirect_uri=REDIRECT_URI&display=DISPLAY&response_type=token 
                 string requestUrl =
                     String.Format("{0}client_id={1}&scope={2}&redirect_uri={3}&display=popup&response_type=token",
-                                  Connection.OAuthUrl, Connection.AppID, Connection.Scopes.ToString().Replace(" ", ""),
+                                  Connection.OAuthUrl, Connection.AppID, Connection.Scopes,
                                   Connection.RedirectUri);
                 browser.Navigate(requestUrl);
             }
@@ -170,10 +171,15 @@ namespace elessar
 
         public bool setOnline()
         {
-            string request = String.Format(Connection.ApiUrl + @"account.setOnline?uid={0}&access_token={1}", UserID(),AccessToken());
+            string request = String.Format(@"{0}account.setOnline?uid={1}&access_token={2}", Connection.ApiUrl, UserID(), AccessToken());
             string response = http.HttpGet(request); 
             setOnline setOnline = setOnline.FromJson(response);
             return Convert.ToBoolean(setOnline.Response);
+        }
+
+        public string ApiRequest(string method, string parameters)
+        {
+            return http.HttpGet(String.Format(@"{0}{1}?{2}&access_token={3}", Connection.ApiUrl, method, parameters, AccessToken()));
         }
     }
 }

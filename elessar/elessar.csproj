@@ -48,6 +48,7 @@
     <Compile Include="JsonClasses.cs" />
     <Compile Include="OAuthConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

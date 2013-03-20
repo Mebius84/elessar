@@ -4,7 +4,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace elessar
+namespace elessar.Http
 {
     public class HttpWrapper
     {

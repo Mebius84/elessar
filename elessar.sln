@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "elessar", "elessar\elessar.csproj", "{1E1C8590-C786-4EF5-805F-F9F1D946AB1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthSample", "AuthSample\AuthSample.csproj", "{E61E5E66-74FA-4333-9BD5-50367BE0583A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "AuthSample\Sample.csproj", "{E61E5E66-74FA-4333-9BD5-50367BE0583A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E2CB9330-D221-42ED-9C90-EB206BE3E4F4}"
 	ProjectSection(SolutionItems) = preProject
